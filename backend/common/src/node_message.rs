@@ -136,6 +136,16 @@ impl Payload {
             _ => None,
         }
     }
+
+    pub fn print_string(&self) -> String {
+        match self {
+            Payload::SystemConnected(ref connected) => "Payload::SystemConnected".to_string(),
+            Payload::SystemInterval(ref interval) => "Payload::SystemInterval".to_string(),
+            Payload::BlockImport(ref blockimport) => "Payload::BlockImport".to_string(),
+            Payload::NotifyFinalized(ref finalized) => "Payload::NotifyFinalized".to_string(),
+            _ => "".to_string(),
+        }
+    }
 }
 
 #[cfg(test)]

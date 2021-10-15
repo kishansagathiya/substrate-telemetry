@@ -311,6 +311,7 @@ where
                     None => { break; }
                 };
 
+                println!("telemetry message received: {}", std::str::from_utf8(&bytes).unwrap());
                 // Keep track of total bytes and bail if average over last 10 secs exceeds preference.
                 rolling_total_bytes.push(bytes.len());
                 let this_bytes_per_second = rolling_total_bytes.total() / 10;
@@ -331,7 +332,8 @@ where
                         continue;
                     },
                     #[cfg(not(debug))]
-                    Err(_) => {
+                    Err(f) => {
+                        println!("could not parse json into nodeMessage {}", f);
                         continue;
                     }
                 };
@@ -340,7 +342,7 @@ where
                 let node_message: node_message::NodeMessage = node_message.into();
                 let message_id = node_message.id();
                 let payload = node_message.into_payload();
-
+                println!("message type {}\n", payload.print_string());
                 // Until the aggregator receives an `Add` message, which we can create once
                 // we see one of these SystemConnected ones, it will ignore messages with
                 // the corresponding message_id.
