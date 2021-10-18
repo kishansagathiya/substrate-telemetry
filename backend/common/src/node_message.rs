@@ -137,7 +137,7 @@ impl Payload {
         }
     }
 
-    pub fn print_string(&self) -> String {
+    pub fn kind(&self) -> String {
         match self {
             Payload::SystemConnected(ref connected) => "Payload::SystemConnected".to_string(),
             Payload::SystemInterval(ref interval) => "Payload::SystemInterval".to_string(),

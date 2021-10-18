@@ -342,7 +342,7 @@ where
                 let node_message: node_message::NodeMessage = node_message.into();
                 let message_id = node_message.id();
                 let payload = node_message.into_payload();
-                println!("message type {}\n", payload.print_string());
+                println!("message type {}\n", payload.kind());
                 // Until the aggregator receives an `Add` message, which we can create once
                 // we see one of these SystemConnected ones, it will ignore messages with
                 // the corresponding message_id.
