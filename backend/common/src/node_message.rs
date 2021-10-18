@@ -143,6 +143,7 @@ impl Payload {
             Payload::SystemInterval(ref interval) => "Payload::SystemInterval".to_string(),
             Payload::BlockImport(ref blockimport) => "Payload::BlockImport".to_string(),
             Payload::NotifyFinalized(ref finalized) => "Payload::NotifyFinalized".to_string(),
+            Payload::PreparedBlockForProposing => "Payload::PreparedBlockForProposing".to_string(),
             _ => "".to_string(),
         }
     }
