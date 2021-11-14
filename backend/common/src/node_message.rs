@@ -144,6 +144,15 @@ impl Payload {
             Payload::BlockImport(ref blockimport) => "Payload::BlockImport".to_string(),
             Payload::NotifyFinalized(ref finalized) => "Payload::NotifyFinalized".to_string(),
             Payload::PreparedBlockForProposing => "Payload::PreparedBlockForProposing".to_string(),
+            Payload::TxPoolImport => "Payload::TxPoolImport".to_string(),
+            Payload::AfgFinalized(ref afg_finalized) => "Payload::AfgFinalized".to_string(),
+            Payload::AfgReceivedPrecommit(ref afg_received) => "Payload::AfgReceivedPrecommit".to_string(),
+            Payload::AfgReceivedPrevote(ref afg_received) => "Payload::AfgReceivedPrevote".to_string(),
+            Payload::AfgReceivedCommit(ref afg_received) => "Payload::AfgReceivedCommit".to_string(),
+            Payload::AfgAuthoritySet(ref afg_authority_set) => "Payload::AfgAuthoritySet".to_string(),
+            Payload::AfgFinalizedBlocksUpTo => "Payload::AfgFinalizedBlocksUpTo".to_string(),
+            Payload::AuraPreSealedBlock => "Payload::AuraPreSealedBlock".to_string(),
+
             _ => "".to_string(),
         }
     }
